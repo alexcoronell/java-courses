@@ -1,0 +1,23 @@
+allprojects {
+    apply plugin: 'java'
+
+    group 'com.platzi'
+    version '0.1.0'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // https://mvnrepository.com/artifact/com.beust/jcommander
+        implementation group: 'com.beust', name: 'jcommander', version: '1.78'
+
+        // https://mvnrepository.com/artifact/io.github.openfeign/feign-core
+        implementation group: 'io.github.openfeign', name: 'feign-core', version: '10.7.0'
+
+        // https://mvnrepository.com/artifact/io.github.openfeign/feign-gson
+        implementation group: 'io.github.openfeign', name: 'feign-gson', version: '10.7.0'
+    }
+}

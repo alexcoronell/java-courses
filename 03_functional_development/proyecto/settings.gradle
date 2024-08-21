@@ -1,0 +1,2 @@
+include ":modules", "jobs-search-reporter"
+rootProject.name = "job-search-reporter"
