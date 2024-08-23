@@ -5,9 +5,14 @@ public class Main {
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
+        //Class cl = Class.forName("com.mysql.jdbc.Driver")
+        var database = "java_sql_database";
+        var url = "jdbc:mysql://localhost:3306/" + database;
+        var user = "root";
+        var password = "root";
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql//localhost/project", "root", "root");
+            connection = DriverManager.getConnection(url, user, password);
             System.out.println("Connection completed");
         } catch (SQLException e) {
             e.printStackTrace();

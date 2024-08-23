@@ -10,11 +10,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../JDBC" />
+          <root url="file://$MODULE_DIR$/../../connectors" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/../JDBC" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../connectors" recursive="false" />
       </library>
     </orderEntry>
   </component>
