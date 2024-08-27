@@ -23,7 +23,7 @@ public class EmployeeRepository implements Repository<Employee> {
         ) {
 
             while (resultSet.next()) {
-                Employee employee = createEmployee(resultSet)
+                Employee employee = createEmployee(resultSet);
                 employees.add(employee);
             }
         } catch (SQLException e) {
@@ -69,7 +69,18 @@ public class EmployeeRepository implements Repository<Employee> {
 
     @Override
     public void save(Employee employee) {
-
+        String sql = "INSERT INTO employees (first_name, pa_surname, ma_surname, email, salary) VALUES (?, ?, ?, ?, ?)";
+        try(PreparedStatement preparedStatement = getConnection().prepareStatement(sql)) {
+            preparedStatement.setString(1, employee.getFirst_name());
+            preparedStatement.setString(2, employee.getPa_surname());
+            preparedStatement.setString(3, employee.getMa_surname());
+            preparedStatement.setString(4, employee.getEmail());
+            preparedStatement.setFloat(5, employee.getSalary());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("There is something bad, query save NOT completed");
+        }
     }
 
     @Override
