@@ -24,30 +24,41 @@ public class Main {
 //        delete(employeeToDelete);
 //        SwingApp app = new SwingApp();
 //        app.setVisible(true);
-        try(Connection connection = DatabaseConnection.getInstance()){
-            if(connection.getAutoCommit()){
-                connection.setAutoCommit(false);
-            }
+//        try(Connection connection = DatabaseConnection.getInstance()){
+//            if(connection.getAutoCommit()){
+//                connection.setAutoCommit(false);
+//            }
+//
+//            try{
+//                Repository<Employee> repository = new EmployeeRepository(connection);
+//                Employee employee;
+//                employee = new Employee();
+//                //employee.setId(13);
+//                employee.setFirst_name("John");
+//                employee.setPa_surname("Doe");
+//                employee.setMa_surname("Edited");
+//                employee.setEmail("jdoe@email.com");
+//                employee.setSalary(5566.65F);
+//                employee.setCurp("ABCDEFGH123456789");
+//                repository.save(employee);
+//                connection.commit();
+//            } catch (SQLException e){
+//                connection.rollback();
+//                e.printStackTrace();
+//
+//            }
+//        }
 
-            try{
-                Repository<Employee> repository = new EmployeeRepository(connection);
-                Employee employee;
-                employee = new Employee();
-                //employee.setId(13);
-                employee.setFirst_name("John");
-                employee.setPa_surname("Doe");
-                employee.setMa_surname("Edited");
-                employee.setEmail("jdoe@email.com");
-                employee.setSalary(5566.65F);
-                employee.setCurp("ABCDEFGH123456789");
-                repository.save(employee);
-                connection.commit();
-            } catch (SQLException e){
-                connection.rollback();
-                e.printStackTrace();
 
-            }
-        }
+        System.out.println("Showing employees");
+        Repository<Employee> repository = new EmployeeRepository();
+        repository.findAll().forEach(System.out::println);
+
+        System.out.println("------ Loading by ID ------");
+        System.out.println(repository.getById(2));
+        System.out.println(repository.getById(3));
+        System.out.println(repository.getById(4));
+
     }
 
     /*
