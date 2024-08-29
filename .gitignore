@@ -58,3 +58,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/05_persistencia_datos/messages_app/target/
