@@ -191,8 +191,8 @@ public class CatService {
             MediaType mediaType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(mediaType, "{\n\t\"image_id\":\"" + cat.getId() + "\"\n}");
             Request request = new Request.Builder()
-                    .url("https://api.thecatapi.com/v1/favourites")
-                    .delete()
+                    .url("https://api.thecatapi.com/v1/favourites" + favoriteCat.getId())
+                    .delete(null)
                     .addHeader("Content-Type", "application/json")
                     .addHeader("x-api-key", cat.getApiKey())
                     .build();
