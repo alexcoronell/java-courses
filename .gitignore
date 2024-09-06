@@ -60,3 +60,6 @@ bin/
 .DS_Store
 /05_persistencia_datos/messages_app/target/
 /05_persistencia_datos/cat_app/target/
+
+### Docker volumes ###
+postgres_data
