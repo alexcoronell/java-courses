@@ -89,7 +89,6 @@ public class PizzaController {
     @PutMapping("/priceUpdate")
     public ResponseEntity<Void> updatePrice(@RequestBody UpdatePizzaPriceDto dto) {
         if(this.pizzaService.exist(dto.getPizzaId())) {
-            System.out.println(dto.getPizzaId());
             this.pizzaService.updatePrice(dto);
             return ResponseEntity.ok().build();
         }
